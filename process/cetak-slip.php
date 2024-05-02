@@ -4,7 +4,7 @@ use Core\Database;
 
 $db = new Database;
 
-$payroll_periods_users = $_GET['filter']['payroll_periods_users'] ?? null;
+$period_id = $_GET['filter']['period_id'] ?? null;
 
 $db->query  = "SELECT 
     users.id AS user_id,
@@ -17,11 +17,11 @@ $db->query  = "SELECT
 FROM payroll_periods_users
     JOIN payroll_periods ON payroll_periods_users.period_id = payroll_periods.id
     JOIN users ON payroll_periods_users.user_id = users.id
-WHERE payroll_periods_users.id = $payroll_periods_users";
+WHERE payroll_periods_users.period_id = $period_id";
 
-$data =  $db->exec('single');
+$data =  $db->exec('all');
 // echo '<pre>';
 // print_r($data);
 // die();
 
-return view('payroll/views/lihat-slip', compact('data'));
+return view('payroll/views/cetak-slip', compact('data'));

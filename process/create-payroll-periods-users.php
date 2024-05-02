@@ -45,16 +45,14 @@ $period_name       = $db->exec('single');
 if (Request::isMethod('POST')) {
     $period_id = $_POST['period_id'];
 
-    // Ambil data dari input form
     $salary = $_POST['salary'];
     $note = $_POST['note'];
     $status = $_POST['status'];
 
-    // Iterasi melalui setiap `user_id`
     foreach ($_POST['user_id'] as $user_id) {
-        $current_salary = $salary[$user_id] ?? null; // Ambil salary untuk user_id saat ini
-        $current_note = $note[$user_id] ?? null; // Ambil note untuk user_id saat ini
-        $current_status = isset($status[$user_id]) ? $status[$user_id] : 'Tidak Di Bayar'; // Ambil status untuk user_id saat ini
+        $current_salary = $salary[$user_id] ?? null; 
+        $current_note = $note[$user_id] ?? null;
+        $current_status = isset($status[$user_id]) ? $status[$user_id] : 'Belum Di Bayar'; 
 
         $db->insert($table, [
             'user_id'   => $user_id,
@@ -68,9 +66,6 @@ if (Request::isMethod('POST')) {
     // Set flash message
     set_flash_msg(['success' => "$title berhasil ditambahkan"]);
 
-    // Redirect ke halaman tertentu
-    // header('location:payroll.index-payroll-periods-users',['filter' => ['period_id'=>$period_id]]);
-    // return Redirect::route('payroll.index-payroll-periods-users', ['filter' => ['period_id' => $period_id]]);
     header('Location: /payroll/index-payroll-periods-users?filter[period_id]=' . urlencode($period_id));
 
     die();

@@ -12,4 +12,6 @@ return [
     'salary' => 'Salary',
     'note' => 'Note',
     'status' => 'Status',
+    'print' => 'Print',
+    'pay'   => 'Pay'
 ];
