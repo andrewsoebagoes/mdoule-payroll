@@ -11,9 +11,7 @@ table td img {
             <?= $crudRepository->additionalButtonBeforeCreate() ?>
             <?php if(is_allowed(parsePath(routeTo('crud/create', ['table'=>$tableName])), auth()->id)): ?>
  
-            <a href="<?= routeTo('payroll/cetak-slip',['filter'=>['period_id' => $period_name->id]])?>" target="_blank" class="btn btn-primary btn-sm">
-                <i class="fa-solid fa-print"></i> Print
-            </a>
+          
             <a href="<?= routeTo('payroll/create-payroll-periods-users',['filter'=>['period_id' => $period_name->id]])?>" class="btn btn-success btn-sm">
                 <i class="fa-solid fa-plus"></i> <?= __('crud.label.create') ?>
             </a>

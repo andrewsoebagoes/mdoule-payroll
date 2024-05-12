@@ -1,6 +1,6 @@
 <?php 
 
 return [
-    'module_name' => 'Daftar Gaji',
-    'payroll_periods' => 'Daftar Gaji Periode'
+    'module_name' => 'Penggajian',
+    'payroll_periods' => 'Penggajian'
 ];
