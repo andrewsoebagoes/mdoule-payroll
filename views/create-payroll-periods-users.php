@@ -4,7 +4,7 @@
     <div class="card-header d-flex flex-grow-1 align-items-center">
         <p class="h4 m-0"><?= __('crud.label.create') ?> <?php get_title() ?> - <?= $period_name->name; ?></p>
         <div class="right-button ms-auto">
-            <a href="<?= routeTo('payroll/index-payroll-periods-users',['filter'=>['period_id' => $period_name->id]])?>" class="btn btn-warning btn-sm">
+            <a href="<?= routeTo('crud/index?table=payroll_periods_users&',['filter'=>['period_id' => $period_name->id]])?>" class="btn btn-warning btn-sm">
                 <?= __('crud.label.back') ?>
             </a>
          

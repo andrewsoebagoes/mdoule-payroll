@@ -66,7 +66,7 @@ if (Request::isMethod('POST')) {
     // Set flash message
     set_flash_msg(['success' => "$title berhasil ditambahkan"]);
 
-    header('Location: /payroll/index-payroll-periods-users?filter[period_id]=' . urlencode($period_id));
+    header('location:'. routeTo('crud/index?table=payroll_periods_users&filter[period_id]=' . urlencode($period_id)));
 
     die();
 }
